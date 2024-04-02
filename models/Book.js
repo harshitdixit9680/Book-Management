@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const CardSchema = new Schema({
+const BookSchema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
@@ -10,14 +10,14 @@ const CardSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
+  author: {
     type: String,
     required: true,
     unique: true,
   },
-  price: {
-    type: String,
-    default: "genral",
+  year: {
+    type: Number,
+    required: true
   },
   date: {
     type: Date,
@@ -26,4 +26,4 @@ const CardSchema = new Schema({
   
 });
 
-module.exports = mongoose.model("card", CardSchema);
+module.exports = mongoose.model('book', BookSchema);
